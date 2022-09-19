@@ -1,0 +1,282 @@
+body, html, ul, li, h1, p{
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    background: rgba(0,0,0,0.02);
+}
+
+aside {
+    color: black;
+    font-size: 10px;
+    font-weight: 400;
+    margin-left: 5px;
+    float: left;
+    height: 510px;
+    background: lightgray;
+}
+
+main {
+    float: right;
+    width: 1050px;
+    vertical-align: top;
+    padding: 0 10px;
+}
+
+.index-main-layer {
+    padding: 10px;
+}
+
+
+main > div {
+    margin-bottom: 10px;
+}
+
+.index-main-body {
+    height: 410px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.index-body {
+    margin-top: 5px;
+    position: absolute;
+}
+
+.home-menu {
+    list-style: none;
+    text-align: center;
+}
+
+.home-menu > li.home-menu-item{
+    padding: 10px 40px;
+    margin-bottom: 2px;
+    background: rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+.home-menu-item {
+    /*box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);*/
+}
+
+.home-menu-logo {
+    color: tomato;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.home-menu > li.item-hover:hover {
+    background: white;
+    color: black;
+}
+
+.horizontal-divider {
+    background: rgba(0,0,0,0.08);
+    border-bottom: none;
+}
+
+.index-logo-header {
+    color: tomato;
+}
+
+.index-logo-slogan {
+    color: coral;
+}
+
+/** button 开始 */
+
+.button-create {
+    font-size: 8px;
+    font-weight: 200;
+    margin-bottom: 10px;
+    padding: 2px 6px;
+}
+
+button {
+    cursor: pointer;
+    border: solid 1px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    background: rgba(0,0,0,0.6);
+    color: white;
+}
+
+/** button 结束 */
+
+/*------------------------- table 属性开始 ----------------------*/
+
+.table_wrap{
+    width: 100%;
+    overflow: auto;
+    border-bottom: 1px solid lightgray;
+    height: 350px;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+td, th {
+    width: 150px;
+    box-sizing: border-box;
+    border-right: 1px solid rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 30px;
+    text-align: center;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    height: 30px;
+}
+
+/*th:first-child, th:last-child,*/
+/*td:first-child, td:last-child {*/
+/*    position: sticky;*/
+/*    left: 0;*/
+/*    background: #F4F4F5;*/
+/*    text-align: center;*/
+/*    right: 0;*/
+/*    width: 100px;*/
+/*}*/
+
+thead > tr > th {
+    font-size: 10px;
+    font-weight: 200;
+    background: #F4F4F5;
+}
+
+tbody {
+    font-size: 8px;
+    font-weight: 100;
+}
+
+tbody > tr > td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-td-pop {
+    cursor: pointer;
+}
+
+/*------------------------- table 属性结束 ----------------------*/
+
+/*------------------------- modal 属性开始 ----------------------*/
+.index-pop-cover {
+    display: none;
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#index-modal-create {
+    display: none;
+    height: 500px;
+    width: 500px;
+    background: cornsilk;
+    z-index: 2;
+    position: absolute;
+    top: 10px;
+    left: 35%;
+}
+
+.index-modal-header {
+    padding: 8px 20px;
+    font-weight: 300;
+    font-size: 14px;
+    color: black;
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+    display: block;
+    overflow: hidden;
+}
+
+.modal-header-exp {
+    float: left;
+}
+.modal-header-close {
+    float: right;
+    cursor: pointer;
+}
+/*------------------------- modal 属性结束 ----------------------*/
+
+/*------------------------- form 属性开始 ----------------------*/
+
+form {
+    text-align: center;
+}
+
+.form-item {
+    margin-top: 20px;
+}
+
+.form-item > input, .form-item > textarea {
+    width: 300px;
+}
+
+textarea {
+    height: 80px;
+    vertical-align: top;
+    resize: none;
+    padding: 4px 6px;
+    border: solid 1px rgba(0,0,0,0.1);
+}
+
+.form-item > label {
+    margin-right: 20px;
+    font-weight: 200;
+    font-size: 12px;
+}
+
+input {
+    height: 24px;
+    padding: 2px 6px;
+    color: rgba(0,0,0,0.6);
+    border: solid 1px rgba(0,0,0,0.1);
+}
+
+.index-modal-footer {
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.button-confirm {
+    background: red;
+    color: white;
+}
+
+.button-cancel {
+    margin-left: 15px;
+}
+
+.button-confirm, .button-cancel {
+    padding: 3px 8px;
+}
+
+.finish-mark, .in-progress-mark {
+    cursor: not-allowed;
+    width: 50px;
+    border: none;
+}
+.finish-mark {
+    background: red;
+    color: white;
+}
+
+.in-progress-mark {
+    background: greenyellow;
+}
+/*------------------------- form 属性结束 ----------------------*/

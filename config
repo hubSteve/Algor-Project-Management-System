@@ -1,0 +1,14 @@
+[core]
+	bare = true
+	repositoryformatversion = 0
+	filemode = false
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/hubSteve/Algor-Project-Management-System.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "master"]
+	url = https://github.com/hubSteve/algor.git
+	fetch = +refs/heads/*:refs/remotes/master/*
+	tagopt = --no-tags
+	pushurl = https://github.com/hubSteve/algor.git
