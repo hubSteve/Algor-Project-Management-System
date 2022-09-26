@@ -58,35 +58,65 @@ buildModal = function () {
         "<div class='index-modal-body'>" +
         "   <form>" +
         "       <p class='form-item'>" +
-        "          <label for='project-name'>项目名称</label>" +
-        "          <input id='project-name' />" +
+        "          <label for='projectName'>项目名称</label>" +
+        "          <input id='projectName' />" +
         "       </p> " +
         "       <p class='form-item'>" +
-        "          <label for='company-name'>所属公司</label>" +
-        "          <input id='company-name' />" +
+        "          <label for='companyName'>所属公司</label>" +
+        "          <input id='companyName' />" +
         "       </p> " +
         "       <p class='form-item'>" +
-        "          <label for='start-time'>开始时间</label>" +
-        "          <input type='date' id='start-time' />" +
+        "          <label for='startTime'>开始时间</label>" +
+        "          <input type='date' id='startTime' />" +
         "       </p> " +
         "       <p class='form-item'>" +
-        "          <label for='end-time'>结束时间</label>" +
-        "          <input type='date' id='end-time' />" +
+        "          <label for='deadline'>交付时间</label>" +
+        "          <input type='date' id='deadline' />" +
+        "       </p> " +
+        "       <p style='display: none' class='form-item'>" +
+        "          <label for='overTime'>结束时间</label>" +
+        "          <input type='date' id='overTime' />" +
         "       </p> " +
         "       <p class='form-item'>" +
         "          <label for='progress'>当前进度</label>" +
         "          <input id='progress' />" +
         "       </p> " +
         "       <p class='form-item'>" +
-        "          <label for='tech-points'>技术要点</label>" +
-        "          <textarea id='tech-points'></textarea>" +
+        "          <label for='techPoints'>技术要点</label>" +
+        "          <textarea id='techPoints'></textarea>" +
         "       </p> " +
         "   </form>" +
         "</div>" +
         "<div class='index-modal-footer'>" +
-        "    <button class='button-confirm'>确认</button>" +
+        "    <button onclick='saveProjectInfo()' class='button-confirm'>确认</button>" +
         "    <button onclick='closeModal()' class='button-cancel'>取消</button>" +
         "</div>";
+}
+
+saveProjectInfo = function () {
+    const clz = $s(".form-item");
+    const obj = {};
+    for (const d of clz) {
+        if (d instanceof HTMLElement) {
+            for (const e of d.childNodes) {
+                if (e instanceof HTMLElement &&
+                    (e instanceof HTMLInputElement || e instanceof HTMLAreaElement)) {
+                    obj[e.id] = e.value;
+                    break;
+                }
+            }
+        }
+    }
+    const url = "localhost:8080/pro/view/create";
+    const http = getHttp(url, JSON.stringify(obj), "json", "POST");
+    let ret;
+    http.onreadystatechange = function () {
+        if (http.readyState === 4 && http.status === 200) {
+            if (http.responseText) {
+                console.log(http.responseText);
+            }
+        }
+    }
 }
 
 closeModal = function() {
@@ -105,6 +135,11 @@ function txtEllipses(txt) {
         txt = txt.slice(0, 10);
     }
     return "<td title='" + title + "'>"+ txt +" ···</td>";
+}
+
+$s = function (text) {
+    const name = text.slice(1, text.length);
+    return document.getElementsByClassName(name);
 }
 
 // dom 获取函数

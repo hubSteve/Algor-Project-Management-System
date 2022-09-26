@@ -8,6 +8,7 @@ import java.sql.Date;
 public class ProjectInformation {
 
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -19,6 +20,9 @@ public class ProjectInformation {
 
     @Column(name = "CREATE_TIME")
     private Date createTime;
+
+    @Column(name = "DEADLINE")
+    private Date deadline;
 
     @Column(name = "OVER_TIME")
     private Date overTime;
@@ -47,6 +51,14 @@ public class ProjectInformation {
 
     public String getCompanyName() {
         return companyName;
+    }
+
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
     }
 
     public void setCompanyName(String companyName) {
