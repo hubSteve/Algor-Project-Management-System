@@ -8,5 +8,9 @@ public interface ProjectInformationService {
 
     List<ProjectInformation> findAll(ProjectInformation proInfo);
 
-    Integer create(ProjectInformation proInfo);
+    void create(ProjectInformation proInfo);
+
+    void update(ProjectInformation proInfo);
+
+    void deleteById(String id);
 }

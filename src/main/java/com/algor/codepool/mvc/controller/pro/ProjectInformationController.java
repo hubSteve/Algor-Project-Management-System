@@ -3,20 +3,21 @@ package com.algor.codepool.mvc.controller.pro;
 import com.algor.codepool.common.term.Result;
 import com.algor.codepool.mvc.bean.ProjectInformation;
 import com.algor.codepool.mvc.service.ProjectInformationService;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/pro/view")
-@CrossOrigin(origins = {"http://localhost:63342"})
-public class ViewController {
+@RequestMapping("/pro")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
+public class ProjectInformationController {
 
     @Autowired
     ProjectInformationService proInfoService;
 
-    @RequestMapping(value = "/findAll", method = RequestMethod.POST)
+    @PostMapping("/findAll")
     public Result<?> findAll(@RequestBody ProjectInformation proInfo) {
         Result<List<ProjectInformation>> result = new Result<>();
         try {
@@ -31,7 +32,7 @@ public class ViewController {
         return result;
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @PostMapping("/create")
     public Result<?> create(@RequestBody ProjectInformation proInfo) {
         Result<List<ProjectInformation>> result = new Result<>();
         try {
@@ -45,11 +46,29 @@ public class ViewController {
         return result;
     }
 
-    public String update() {
-        return "";
+    @PostMapping("/update")
+    public Result<?> update(@RequestBody ProjectInformation proInfo) {
+        Result<ProjectInformation> result = new Result<>();
+        try {
+            proInfoService.update(proInfo);
+            result.setCode(200);
+            result.setMessage("更新成功!");
+        } catch (Exception e) {
+            result.setCode(400);
+            result.setMessage("更新失败!");
+        }
+        return result;
     }
 
-    public String delete() {
-        return "";
+    @GetMapping(value = "delete/{id}")
+    public Result<?> delete(@PathVariable(name = "id") String id) {
+        Result<ProjectInformation> result = new Result<>();
+        try{
+            proInfoService.deleteById(id);
+            result.setCode(200);
+        } catch (Exception e) {
+            result.setCode(400);
+        }
+        return result;
     }
 }

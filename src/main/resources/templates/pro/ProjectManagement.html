@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/index.css" type="text/css">
+  <title>项目管理</title>
+</head>
+<body>
+<div>
+  <button onclick="createProjectTask()" class="button-create">新建任务 +</button>
+</div>
+<div>
+  <div class="table_wrap">
+    <table>
+      <thead>
+      <tr>
+        <th>序号</th>
+        <th>项目名称</th>
+        <th>所属公司</th>
+        <th>开始时间</th>
+        <th>交付时间</th>
+        <th>技术点</th>
+        <th>当前进度</th>
+        <th>待定</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody id="table-content">
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="/js/request.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/proManagement.js"></script>
+</html>

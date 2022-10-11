@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+    <link rel="stylesheet" href="/css/index.css" type="text/css">
     <title>Home</title>
 </head>
 <body>
 <div class="index-pop-cover">
-    <div class="modal" id="index-modal-create">
+    <div class="modal" id="index-modal">
     </div>
 </div>
 <div class="index-body">
@@ -21,37 +21,14 @@
             <hr class="horizontal-divider">
             <p class="index-logo-slogan">项目开发管理平台</p>
         </div>
-        <div class="index-main-body index-main-layer">
-            <div>
-                <button onclick="createProjectTask()" class="button-create">新建任务 +</button>
-            </div>
-            <div>
-                <div class="table_wrap">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>序号</th>
-                            <th>项目名称</th>
-                            <th>所属公司</th>
-                            <th>开始时间</th>
-                            <th>结束时间</th>
-                            <th>技术点</th>
-                            <th>当前进度</th>
-                            <th>待定</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody id="table-content">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <iframe src="/home" class="index-main-body index-main-layer">
+        </iframe>
         <div class="index-main-footer index-main-layer">
         </div>
     </main>
 </div>
 </body>
-<script type="text/javascript" src="../static/js/index.js"></script>
-<script type="text/javascript" src="../static/js/request.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/request.js"></script>
+<script type="text/javascript" src="/js/utils.js"></script>
 </html>

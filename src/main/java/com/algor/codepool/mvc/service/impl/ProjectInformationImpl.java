@@ -1,5 +1,6 @@
 package com.algor.codepool.mvc.service.impl;
 
+import com.algor.codepool.common.utils.QueryUtils;
 import com.algor.codepool.mvc.bean.ProjectInformation;
 import com.algor.codepool.mvc.dao.ProjectInformationDao;
 import com.algor.codepool.mvc.service.ProjectInformationService;
@@ -17,13 +18,25 @@ public class ProjectInformationImpl implements ProjectInformationService {
 
     @Override
     public List<ProjectInformation> findAll(ProjectInformation proInfo) {
+        if (QueryUtils.isEmpty(proInfo)) {
+            return proInfoDao.findAll();
+        }
         Example<ProjectInformation> example = Example.of(proInfo);
         return proInfoDao.findAll(example);
     }
 
     @Override
-    public Integer create(ProjectInformation proInfo) {
+    public void create(ProjectInformation proInfo) {
         proInfoDao.saveAndFlush(proInfo);
-        return 1;
+    }
+
+    @Override
+    public void update(ProjectInformation proInfo) {
+        proInfoDao.saveAndFlush(proInfo);
+    }
+
+    @Override
+    public void deleteById(String id) {
+        proInfoDao.deleteById(Integer.parseInt(id));
     }
 }
